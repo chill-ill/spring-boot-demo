@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzw.mapper.TableInfoMapper">
+
+    <resultMap id="tableInfoResultMap" type="com.xzw.DO.TableInfoDO">
+        <result property="field" column="Field"/>
+        <result property="type" column="Type"/>
+        <result property="isNull" column="Null"/>
+        <result property="key" column="Key"/>
+        <result property="defaultVal" column="Default"/>
+        <result property="extra" column="Extra"/>
+    </resultMap>
+
+    <select id="describeTable" resultMap="tableInfoResultMap">
+        describe ${tableName}
+    </select>
+</mapper>
